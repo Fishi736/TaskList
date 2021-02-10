@@ -1,0 +1,25 @@
+<div class="header">
+    <h2>What You Have To Do Today?</h2>
+</div>
+
+<div class="form-group">
+  <input type="text"
+    class="form-control" #Task>
+    <button type="submit" class="btn btn-primary" (click)="onAddClick(Task)">Add</button>
+</div>
+
+
+<div class="tasklist">
+    <div class="mt-5">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor='let task of taskListArray'>
+                <span class="hover-cursor" [class.text-success]="task.isChecked" (click)='onCheckClick(task.key.task.isChecked)'>
+                    <i class="fa fa-lg" [ngClass]="task.isChecked? 'fa-check-circle-o' : 'fa-circle-thin'"></i>
+                </span>
+                {{task.name}}
+                <button class="hover-cursor btn-danger text-white " (click)="onDeleteClicked(task.key)">Done
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
